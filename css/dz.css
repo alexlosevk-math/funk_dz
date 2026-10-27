@@ -1,0 +1,60 @@
+/* Сайт с домашкой: то, чего нет в стилях основного сайта */
+
+.hero--dz { grid-template-columns: 1fr; padding-bottom: 28px; }
+.hero--dz p { max-width: 680px; }
+.map__ring--inf span { font-size: 20px; color: var(--c); }
+.report { white-space: pre-wrap; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; font: 14px/1.5 var(--body); color: var(--text); margin-top: 12px; }
+
+/* --- карточка «Опиши функцию» --- */
+.desc__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.desc__grid > .plot { position: sticky; top: 70px; }
+@media (max-width: 900px) { .desc__grid { grid-template-columns: minmax(0, 1fr); } .desc__grid > .plot { position: relative; top: 0; } }
+.desc__side { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.desc__rows { display: flex; flex-direction: column; gap: 6px; }
+.desc__row { display: grid; grid-template-columns: 112px minmax(0, 1fr) 22px; gap: 4px 10px; align-items: center; padding: 6px 8px; border-radius: 12px; border: 1px solid transparent; transition: background 0.2s, border-color 0.2s; }
+.desc__label { display: flex; flex-direction: column; line-height: 1.15; }
+.desc__label .m { font-size: 19px; }
+.desc__label small { color: var(--muted); font-size: 12px; }
+.desc__field { display: flex; gap: 6px; min-width: 0; }
+.desc__input { min-width: 0; width: 100%; padding: 9px 12px; font-size: 16px; }
+.desc__q { flex: none; width: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); cursor: pointer; color: var(--muted); font-weight: 800; }
+.desc__q:hover { color: var(--text); border-color: var(--muted); }
+.desc__status::after { font-weight: 800; }
+.desc__row.is-ok { background: rgba(23, 163, 74, 0.08); border-color: rgba(23, 163, 74, 0.35); }
+.desc__row.is-ok .desc__status::after { content: "✓"; color: var(--green); }
+.desc__row.is-bad { background: rgba(226, 52, 104, 0.07); border-color: rgba(226, 52, 104, 0.35); }
+.desc__row.is-bad .desc__status::after { content: "✗"; color: var(--pink); }
+.desc__tip, .desc__msg, .desc__ans { grid-column: 1 / -1; font-size: 14px; line-height: 1.45; }
+.desc__tip { background: rgba(209, 143, 0, 0.09); border-radius: 10px; padding: 8px 12px; }
+.desc__msg { color: var(--pink); font-weight: 600; }
+.desc__msg:empty { display: none; }
+.desc__ans { color: var(--muted); }
+.desc__ans b { color: var(--cyan); }
+.desc__symbols { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 14px; }
+.chip--sym { padding: 4px 11px; font-size: 15px; font-weight: 700; min-width: 36px; }
+.btn.is-on { background: color-mix(in srgb, var(--purple) 14%, #fff); border-color: var(--purple); }
+@media (max-width: 520px) {
+  .desc__row { grid-template-columns: minmax(0, 1fr) 22px; }
+  .desc__label { grid-column: 1 / -1; flex-direction: row; align-items: baseline; gap: 8px; }
+  .desc__field { grid-column: 1; }
+}
+.desc-table td, .desc-table th { text-align: left; }
+.desc-table { width: 100%; }
+
+/* --- чёрный ящик --- */
+.box__big { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 18px; border-radius: 18px; background: linear-gradient(160deg, #2a2d42, #1d2033); color: #fff; position: relative; overflow: hidden; }
+.box__big span { font-size: 34px; line-height: 1; }
+.box__big b { color: #fff; font: 700 18px var(--head); }
+.box__big small { color: rgba(255, 255, 255, 0.6); }
+.box__big::before, .box__big::after { content: "⚙"; position: absolute; font-size: 28px; color: rgba(255, 210, 63, 0.55); }
+.box__big::before { top: 8px; left: 14px; } .box__big::after { bottom: 8px; right: 14px; }
+.box__big.is-working::before, .box__big.is-working::after { animation: spin 0.45s linear; }
+.box__ask { max-width: 200px; }
+.box__row--free { border: 1px dashed var(--purple); }
+.box__row small { color: var(--purple); font-size: 12px; align-self: center; }
+.box-card.is-given { border-color: rgba(92, 96, 117, 0.4); }
+.box-card .plot { aspect-ratio: 1 / 1; max-height: 420px; }
+
+/* --- тренажёр --- */
+.train__opts { display: flex; flex-direction: column; gap: 12px; }
+.train__lbl { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
